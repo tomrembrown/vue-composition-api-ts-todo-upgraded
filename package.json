@@ -1,11 +1,17 @@
 {
   "name": "vue-composition-api-ts-todo-upgraded",
-  "version": "0.1.0",
-  "private": true,
+  "version": "1.1.0",
+  "author": "Sungjoon Park",
+  "license": "MIT",
+  "main": "public/index.html",
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "dev": "parcel src/index.html",
+    "build": "parcel build src/index.html --public-url ./",
+    "serve": "yarn clean && yarn build && cp -r dist docs",
+    "lint:fix": "eslint --ext .js,.ts,.vue --ignore-path .gitignore . --fix",
+    "stylelint": "stylelint '**/*.{vue,scss,css}' --ignore-path .gitignore",
+    "clean": "rimraf dist/ docs/ .cache",
+    "tsc": "tsc -p tsconfig.json"
   },
   "dependencies": {
     "core-js": "^3.8.2",
@@ -30,6 +36,7 @@
     "prettier": "^1.19.1",
     "sass": "^1.26.5",
     "sass-loader": "^8.0.2",
-    "typescript": "~3.9.3"
+    "typescript": "~3.9.3",
+    "vue-cli-plugin-vuetify": "~2.0.9"
   }
 }
